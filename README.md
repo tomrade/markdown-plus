@@ -8,6 +8,12 @@ Added a File save function using (https://github.com/eligrey/FileSaver.js/)
 
 See Upstream for more details
 
+## Install
+* git clone this
+* yarn Install
+* yarn build
+* profit!
+
 ## License
 MIT
 
