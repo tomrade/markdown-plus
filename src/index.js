@@ -22,3 +22,14 @@ $(() => {
   })
   require('./index.css')
 })
+// get codemirror content via method
+function getCode() {
+  const editor = require('./editor').default
+  var text = editor.getValue();
+  return text;
+}
+
+// export getCode
+module.exports = {
+  getCode: getCode,
+};
