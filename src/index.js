@@ -32,4 +32,4 @@ function getCode() {
 // export getCode
 module.exports = {
   getCode: getCode,
-};
+}

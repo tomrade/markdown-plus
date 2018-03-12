@@ -40,7 +40,7 @@ const config = {
   externals: 'fs', // in order to make mermaid work
   output: {
     path: path.join(__dirname, './dist/'),
-    filename: '[name].bundle.js'
+    filename: '[name].bundle.js',
     // expose some libraries to js
     libraryTarget: 'var',
     library: 'ext'
