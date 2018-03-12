@@ -41,9 +41,6 @@ const config = {
   output: {
     path: path.join(__dirname, './dist/'),
     filename: '[name].bundle.js',
-    // expose some libraries to js
-    libraryTarget: 'var',
-    library: 'ext'
   },
   module: { rules },
   plugins: [
