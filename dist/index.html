@@ -193,12 +193,11 @@ T3: 2014-01-02, 9d"></i>
           <p>Home page: <a href="http://tylingsoft.com/markdown-plus/" target="_blank">http://tylingsoft.com/markdown-plus/</a>.</p>
           <br/><a data-remodal-action="confirm" class="remodal-confirm">OK</a>
         </div>
-        <!-- save dialog -->
-        <div class="remodal" data-remodal-id="save-modal"> <!-- about modal -->
-          <h2>Save the Markdown file</h2>
-          <p>Filename: <input id="filename" title="try it" value="default.md"></input></p>
-          <button id="btn-save" type="submit" class="remodal-confirm" data-remodal-action="confirm">Save to file</button>
-          <a class="remodal-cancel" data-remodal-action="confirm">Cancel</a>
+        <div class="remodal" id="save-modal" data-remodal-id="save-modal"> <!-- save dialog -->
+          <h2> Save File</h2>
+          <p><input class="form-control" id="save-code" value="default.md"/></p>
+          <br/><a data-remodal-action="cancel" class="remodal-cancel">Cancel</a>
+          <a data-remodal-action="confirm" class="remodal-confirm" id="save-confirm">OK</a>
         </div>
       </div>
       <div class="ui-layout-east">
@@ -209,7 +208,5 @@ T3: 2014-01-02, 9d"></i>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remodal/1.1.1/remodal.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.layout/1.4.3/jquery.layout.min.js"></script>
-    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/14082/FileSaver.js"></script>
-    <script> $("#btn-save").click(function() { var text = ext.getCode(); var filename = $("#filename").val(); var blob = new Blob([text], {type: "text/plain;charset=utf-8"}); saveAs(blob, filename); } ); </script>
   </body>
 </html>

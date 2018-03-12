@@ -3,6 +3,7 @@ import $ from 'jquery'
 import editor from './editor'
 import { getNormalPreviewWidth } from './util'
 import layout from './layout'
+import { saveAs } from 'file-saver'
 
 const getSampleText = (event) => {
   let text = editor.getSelection()
@@ -11,6 +12,7 @@ const getSampleText = (event) => {
   }
   return text
 }
+
 
 const promptForValue = (key, action) => {
   $(document).on('opened', '#' + key + '-modal', () => {
@@ -26,6 +28,23 @@ const promptForValue = (key, action) => {
     if (value.length > 0) {
       action(value)
       $('#' + key + '-code').val('')
+    }
+  })
+}
+
+const saveValue = (key, action) => {
+  $(document).on('opened', '#' + key + '-modal', () => {
+    $('#' + key + '-code').focus()
+  })
+  $('#' + key + '-code').keyup((e) => {
+    if (e.which === 13) { // press enter to confirm
+      $('#' + key + '-confirm').click()
+    }
+  })
+  $(document).on('confirmation', '#' + key + '-modal', () => {
+    const value = $('#' + key + '-code').val().trim()
+    if (value.length > 0) {
+      action(value)
     }
   })
 }
@@ -123,6 +142,14 @@ const registerToolBarEvents = () => {
     editor.replaceSelection(`:fa-${value}:`)
   })
 
+  // Save Dialog
+  saveValue('save', (value) => {
+    var text = editor.getValue()
+    var filename = value
+    var blob = new Blob([text], {type: "text/plain;charset=utf-8"})
+    saveAs(blob, filename);
+  })
+
   $('#math-icon').click((event) => {
     let text = getSampleText(event)
     editor.replaceSelection(`\n\`\`\`katex\n${text}\n\`\`\`\n`)
@@ -154,6 +181,10 @@ const registerToolBarEvents = () => {
       layout.sizePane('east', 1)
     }
   })
+
 }
+
+
+
 
 export { registerToolBarEvents }
