@@ -49,6 +49,15 @@ const saveValue = (key, action) => {
   })
 }
 
+const newFile = (key, action) => {
+  $(document).on('confirmation', '#' + key + '-modal', () => {
+    const value ='hello'
+    if (value.length > 0) {
+      action(value)
+    }
+  })
+}
+
 const registerToolBarEvents = () => {
   // h1 - h6 heading
   $('.heading-icon').click((event) => {
@@ -150,6 +159,10 @@ const registerToolBarEvents = () => {
     saveAs(blob, filename);
   })
 
+  newFile('newFile', (value) => {
+    editor.setValue('');
+  })
+
   $('#math-icon').click((event) => {
     let text = getSampleText(event)
     editor.replaceSelection(`\n\`\`\`katex\n${text}\n\`\`\`\n`)
@@ -181,6 +194,8 @@ const registerToolBarEvents = () => {
       layout.sizePane('east', 1)
     }
   })
+
+
 
 }
 

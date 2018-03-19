@@ -68,7 +68,10 @@ T3: 2014-01-02, 9d"></i>
           <i title="Preferences" class="fa fa-cog" data-remodal-target="preferences-modal"></i>
           <i title="Help" class="fa fa-question-circle" data-remodal-target="help-modal"></i>
           <i title="About" class="fa fa-info-circle" data-remodal-target="about-modal"></i>
+          <i class="dividor">|</i>
           <i title="Save" class="fa fa-save" data-remodal-target="save-modal"></i>
+          <i title="New File" class="fa fa-file" data-remodal-target="newFile-modal"></i>
+
         </div>
       </div>
       <div class="ui-layout-center">
@@ -198,6 +201,13 @@ T3: 2014-01-02, 9d"></i>
           <p><input class="form-control" id="save-code" value="default.md"/></p>
           <br/><a data-remodal-action="cancel" class="remodal-cancel">Cancel</a>
           <a data-remodal-action="confirm" class="remodal-confirm" id="save-confirm">OK</a>
+        </div>
+        <div class="remodal" id="newFile-modal" data-remodal-id="newFile-modal"> <!-- new file dialog -->
+          <h2> New File</h2>
+          <p>Are you Sure?<p>
+          <p>Your work will be lost<p>
+          <br/><a data-remodal-action="cancel" class="remodal-confirm">Cancel</a>
+          <a data-remodal-action="confirm" class="remodal-cancel" id="newFile-confirm">Yes</a>
         </div>
       </div>
       <div class="ui-layout-east">
